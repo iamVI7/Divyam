@@ -1,3 +1,4 @@
+import { ArrowRight } from "lucide-react";
 import Image from "next/image";
 import Reveal from "./Reveal";
 import TitleDivider from "./TitleDivider";
@@ -42,7 +43,7 @@ export default function CelebrationsGallery() {
       <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5 mb-9">
         {celebrations.map((c, i) => (
           <Reveal key={c.title} delay={i * 0.08} className="rounded-card overflow-hidden border border-border bg-white/60">
-            <div className="relative h-40 bg-border/60">
+            <div className="relative h-28 lg:h-32 bg-border/60">
               <Image
                 src={c.image}
                 alt={c.title}
@@ -51,9 +52,9 @@ export default function CelebrationsGallery() {
                 className="object-cover"
               />
             </div>
-            <div className="px-5 py-5">
-              <h3 className="font-heading text-lg text-navy mb-1.5">{c.title}</h3>
-              <p className="text-xs text-ink/55 leading-relaxed mb-1.5">{c.features}</p>
+            <div className="px-5 py-4 text-center">
+              <h3 className="font-heading text-base text-navy mb-1.5">{c.title}</h3>
+              <p className="text-xs text-ink/55 leading-snug mb-1">{c.features}</p>
               <p className="text-xs text-gold font-medium">{c.guests}</p>
             </div>
           </Reveal>
@@ -61,8 +62,8 @@ export default function CelebrationsGallery() {
       </div>
 
       <Reveal className="flex justify-center">
-        <button className="bg-gold text-navy font-medium px-7 py-3.5 rounded-btn uppercase text-sm tracking-wide hover:bg-navy hover:text-gold transition-colors duration-200">
-          View More Celebrations
+        <button className="inline-flex items-center gap-2 bg-navy text-white font-medium px-7 py-3.5 rounded-btn uppercase text-sm tracking-wide hover:bg-gold hover:text-navy transition-colors duration-200">
+          View More Celebrations <ArrowRight size={16} />
         </button>
       </Reveal>
     </section>

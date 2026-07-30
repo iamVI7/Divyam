@@ -39,19 +39,22 @@ const items = [
 export default function PromiseOfPurity() {
   return (
     <section id="promise" className="bg-white">
-      <div className="max-w-content mx-auto grid lg:grid-cols-2">
-        <Reveal direction="right" className="px-6 lg:px-16 py-14 lg:py-16">
+      <div className="grid lg:grid-cols-2">
+        <Reveal
+          direction="right"
+          className="px-6 lg:pl-[max(4rem,calc((100vw-1280px)/2+2.5rem))] lg:pr-16 py-10 lg:py-12"
+        >
           <span className="eyebrow">The Promise of Purity</span>
           <h2 className="section-title text-3xl lg:text-4xl font-medium mt-3 mb-1">
             The Promise of Purity
           </h2>
           <TitleDivider align="left" />
-          <p className="text-ink/65 leading-relaxed max-w-md mt-5 mb-7">
+          <p className="text-ink/65 leading-relaxed max-w-md mt-5 mb-6">
             For us, purity is not a statement. It is a discipline we follow in
             every kitchen, at every counter, for every celebration.
           </p>
 
-          <div className="grid sm:grid-cols-2 gap-x-8 gap-y-7">
+          <div className="grid sm:grid-cols-2 gap-x-8 gap-y-5">
             {items.map(({ icon: Icon, title, desc }, i) => (
               <Reveal key={title} delay={i * 0.05} className="flex gap-3">
                 <Icon size={20} strokeWidth={1.5} className="text-gold shrink-0 mt-0.5" />
@@ -64,14 +67,15 @@ export default function PromiseOfPurity() {
           </div>
         </Reveal>
 
-        <Reveal direction="left" className="relative min-h-[320px] lg:min-h-full bg-border/60">
+        <Reveal direction="left" className="relative min-h-[220px] lg:min-h-[380px] bg-border/60 overflow-hidden">
           <Image
             src="/images/purity.png"
             alt="Pure vegetarian food preparation at a DIVYAM wedding"
             fill
             sizes="(max-width: 1024px) 100vw, 50vw"
-            className="object-cover"
+            className="object-cover object-center"
           />
+          <div className="absolute inset-0 bg-gradient-to-r from-white via-white/30 to-transparent lg:w-2/3" />
         </Reveal>
       </div>
     </section>
