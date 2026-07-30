@@ -1,4 +1,4 @@
-import { ImageIcon } from "lucide-react";
+import Image from "next/image";
 import Reveal from "./Reveal";
 import TitleDivider from "./TitleDivider";
 
@@ -7,21 +7,25 @@ const celebrations = [
     title: "Traditional Wedding",
     features: "Full Planning | Catering | Décor | Hospitality",
     guests: "600+ Guests",
+    image: "/images/celebrations/c1.png",
   },
   {
     title: "Multi-day Celebration",
     features: "Planning | Catering | Production | Hospitality",
     guests: "1000+ Guests",
+    image: "/images/celebrations/c4.png",
   },
   {
     title: "Jain Wedding",
     features: "Jain Catering | Décor | Hospitality",
     guests: "450+ Guests",
+    image: "/images/celebrations/c3.png",
   },
   {
     title: "Reception Celebration",
     features: "Décor | Catering | Hospitality | Production",
     guests: "800+ Guests",
+    image: "/images/celebrations/c2.png",
   },
 ];
 
@@ -38,8 +42,14 @@ export default function CelebrationsGallery() {
       <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5 mb-9">
         {celebrations.map((c, i) => (
           <Reveal key={c.title} delay={i * 0.08} className="rounded-card overflow-hidden border border-border bg-white/60">
-            <div className="h-40 bg-border/60 flex items-center justify-center">
-              <ImageIcon size={32} strokeWidth={1.25} className="text-gold/70" />
+            <div className="relative h-40 bg-border/60">
+              <Image
+                src={c.image}
+                alt={c.title}
+                fill
+                sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
+                className="object-cover"
+              />
             </div>
             <div className="px-5 py-5">
               <h3 className="font-heading text-lg text-navy mb-1.5">{c.title}</h3>

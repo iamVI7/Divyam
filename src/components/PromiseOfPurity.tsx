@@ -1,4 +1,5 @@
-import { Leaf, Tags, FileText, Users, CookingPot, BadgeCheck, ImageIcon } from "lucide-react";
+import { Leaf, Tags, FileText, Users, CookingPot, BadgeCheck } from "lucide-react";
+import Image from "next/image";
 import Reveal from "./Reveal";
 import TitleDivider from "./TitleDivider";
 
@@ -63,11 +64,14 @@ export default function PromiseOfPurity() {
           </div>
         </Reveal>
 
-        <Reveal direction="left" className="min-h-[320px] lg:min-h-full bg-border/60 flex items-center justify-center">
-          <div className="flex flex-col items-center gap-3 text-ink/40">
-            <ImageIcon size={56} strokeWidth={1.25} className="text-gold/70" />
-            <span className="uppercase text-xs tracking-[0.2em]">Food Image (Placeholder)</span>
-          </div>
+        <Reveal direction="left" className="relative min-h-[320px] lg:min-h-full bg-border/60">
+          <Image
+            src="/images/purity.png"
+            alt="Pure vegetarian food preparation at a DIVYAM wedding"
+            fill
+            sizes="(max-width: 1024px) 100vw, 50vw"
+            className="object-cover"
+          />
         </Reveal>
       </div>
     </section>

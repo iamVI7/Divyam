@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ImageIcon } from "lucide-react";
+import Image from "next/image";
 
 export default function Hero() {
   return (
@@ -37,14 +37,16 @@ export default function Hero() {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.7, delay: 0.15 }}
-        className="relative min-h-[320px] lg:min-h-[560px] bg-border/60 flex items-center justify-center"
+        className="relative min-h-[320px] lg:min-h-[560px] bg-border/60"
       >
-        <div className="flex flex-col items-center gap-3 text-ink/40">
-          <ImageIcon size={56} strokeWidth={1.25} className="text-gold/70" />
-          <span className="uppercase text-xs tracking-[0.2em]">
-            Hero Image (Placeholder)
-          </span>
-        </div>
+        <Image
+          src="/images/hero.png"
+          alt="Pure vegetarian luxury wedding in Prayagraj by DIVYAM"
+          fill
+          priority
+          sizes="(max-width: 1024px) 100vw, 50vw"
+          className="object-cover"
+        />
       </motion.div>
     </section>
   );
