@@ -4,6 +4,7 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Quote, ChevronLeft, ChevronRight } from "lucide-react";
 import Reveal from "./Reveal";
+import TitleDivider from "./TitleDivider";
 
 const testimonials = [
   {
@@ -32,9 +33,10 @@ export default function Testimonials() {
 
   return (
     <section className="bg-navy text-white">
-      <div className="max-w-content mx-auto px-6 lg:px-10 py-20 lg:py-24">
-        <Reveal className="text-center mb-12">
+      <div className="max-w-content mx-auto px-6 lg:px-10 py-14 lg:py-16">
+        <Reveal className="text-center mb-10">
           <h2 className="font-heading text-3xl lg:text-4xl font-medium">What Families Say</h2>
+          <TitleDivider light />
         </Reveal>
 
         <div className="hidden lg:grid grid-cols-3 gap-6">

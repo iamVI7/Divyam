@@ -1,5 +1,6 @@
 import { Leaf, Tags, FileText, Users, CookingPot, BadgeCheck, ImageIcon } from "lucide-react";
 import Reveal from "./Reveal";
+import TitleDivider from "./TitleDivider";
 
 const items = [
   {
@@ -38,12 +39,13 @@ export default function PromiseOfPurity() {
   return (
     <section id="promise" className="bg-white">
       <div className="max-w-content mx-auto grid lg:grid-cols-2">
-        <Reveal direction="right" className="px-6 lg:px-16 py-20 lg:py-24">
+        <Reveal direction="right" className="px-6 lg:px-16 py-14 lg:py-16">
           <span className="eyebrow">The Promise of Purity</span>
-          <h2 className="section-title text-3xl lg:text-4xl font-medium mt-3 mb-4">
+          <h2 className="section-title text-3xl lg:text-4xl font-medium mt-3 mb-1">
             The Promise of Purity
           </h2>
-          <p className="text-ink/65 leading-relaxed max-w-md mb-9">
+          <TitleDivider align="left" />
+          <p className="text-ink/65 leading-relaxed max-w-md mt-5 mb-7">
             For us, purity is not a statement. It is a discipline we follow in
             every kitchen, at every counter, for every celebration.
           </p>

@@ -1,6 +1,7 @@
 import { Tent, UtensilsCrossed, Leaf, ConciergeBell, Flower2, Lightbulb } from "lucide-react";
 import { ArrowRight } from "lucide-react";
 import Reveal from "./Reveal";
+import TitleDivider from "./TitleDivider";
 
 const services = [
   {
@@ -37,12 +38,13 @@ const services = [
 
 export default function Services() {
   return (
-    <section id="services" className="max-w-content mx-auto px-6 lg:px-10 py-20 lg:py-24">
-      <Reveal className="text-center mb-14">
+    <section id="services" className="max-w-content mx-auto px-6 lg:px-10 py-14 lg:py-16">
+      <Reveal className="text-center mb-10">
         <span className="eyebrow">What We Do</span>
         <h2 className="section-title text-3xl lg:text-4xl font-medium mt-3">
           A Complete Wedding House in Prayagraj
         </h2>
+        <TitleDivider />
       </Reveal>
 
       <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4 lg:gap-5 items-stretch">

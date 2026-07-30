@@ -1,5 +1,6 @@
 import { ImageIcon } from "lucide-react";
 import Reveal from "./Reveal";
+import TitleDivider from "./TitleDivider";
 
 const celebrations = [
   {
@@ -26,14 +27,15 @@ const celebrations = [
 
 export default function CelebrationsGallery() {
   return (
-    <section id="celebrations" className="max-w-content mx-auto px-6 lg:px-10 py-20 lg:py-24">
-      <Reveal className="text-center mb-14">
+    <section id="celebrations" className="max-w-content mx-auto px-6 lg:px-10 py-14 lg:py-16">
+      <Reveal className="text-center mb-10">
         <h2 className="section-title text-3xl lg:text-4xl font-medium">
           Real Celebrations in Prayagraj
         </h2>
+        <TitleDivider />
       </Reveal>
 
-      <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5 mb-12">
+      <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5 mb-9">
         {celebrations.map((c, i) => (
           <Reveal key={c.title} delay={i * 0.08} className="rounded-card overflow-hidden border border-border bg-white/60">
             <div className="h-40 bg-border/60 flex items-center justify-center">

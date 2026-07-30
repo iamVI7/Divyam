@@ -1,8 +1,9 @@
 "use client";
 
 import { useState, FormEvent } from "react";
-import { MapPin, Phone, Mail, Clock } from "lucide-react";
+import { MapPin, Phone, Mail, Clock, ChevronDown } from "lucide-react";
 import Reveal from "./Reveal";
+import TitleDivider from "./TitleDivider";
 
 function WhatsAppIcon({ size = 40, className = "" }: { size?: number; className?: string }) {
   return (
@@ -69,15 +70,19 @@ export default function ContactSection() {
     }
   }
 
+  const inputClasses =
+    "bg-white/5 border border-white/15 rounded-btn px-4 py-3 text-sm placeholder:text-white/40 focus:border-gold outline-none transition-colors";
+
   return (
     <section id="contact" className="bg-navy text-white">
-      <div className="max-w-content mx-auto px-6 lg:px-10 py-20 lg:py-24 grid lg:grid-cols-3 gap-12">
+      <div className="max-w-content mx-auto px-6 lg:px-10 py-14 lg:py-16 grid lg:grid-cols-3 gap-12">
         {/* Info column */}
         <Reveal direction="right">
-          <h2 className="font-heading text-3xl font-medium mb-4">
+          <h2 className="font-heading text-3xl font-medium mb-1">
             Let&rsquo;s Plan Your Celebration in Prayagraj
           </h2>
-          <p className="text-sm text-white/60 leading-relaxed mb-8">
+          <TitleDivider align="left" light />
+          <p className="text-sm text-white/60 leading-relaxed mt-5 mb-7">
             We would be honoured to understand your vision and help you plan a
             celebration that your family will cherish.
           </p>
@@ -127,13 +132,13 @@ export default function ContactSection() {
                 required
                 name="fullName"
                 placeholder="Full Name*"
-                className="bg-white/5 border border-white/15 rounded-btn px-4 py-3 text-sm placeholder:text-white/40 focus:border-gold outline-none"
+                className={inputClasses}
               />
               <input
                 required
                 name="phoneNumber"
                 placeholder="Phone Number*"
-                className="bg-white/5 border border-white/15 rounded-btn px-4 py-3 text-sm placeholder:text-white/40 focus:border-gold outline-none"
+                className={inputClasses}
               />
             </div>
             <input
@@ -141,34 +146,40 @@ export default function ContactSection() {
               type="email"
               name="email"
               placeholder="Email Address*"
-              className="bg-white/5 border border-white/15 rounded-btn px-4 py-3 text-sm placeholder:text-white/40 focus:border-gold outline-none"
+              className={inputClasses}
             />
             <div className="grid sm:grid-cols-2 gap-4">
               <input
                 name="weddingDate"
                 placeholder="Wedding Date (or Period)"
-                className="bg-white/5 border border-white/15 rounded-btn px-4 py-3 text-sm placeholder:text-white/40 focus:border-gold outline-none"
+                className={inputClasses}
               />
-              <select
-                name="celebrationType"
-                defaultValue=""
-                className="bg-white/5 border border-white/15 rounded-btn px-4 py-3 text-sm text-white/70 focus:border-gold outline-none"
-              >
-                <option value="" disabled>
-                  Type of Celebration
-                </option>
-                {celebrationTypes.map((c) => (
-                  <option key={c} value={c} className="text-ink">
-                    {c}
+              <div className="relative">
+                <select
+                  name="celebrationType"
+                  defaultValue=""
+                  className={`${inputClasses} w-full text-white/70 appearance-none pr-9`}
+                >
+                  <option value="" disabled>
+                    Type of Celebration
                   </option>
-                ))}
-              </select>
+                  {celebrationTypes.map((c) => (
+                    <option key={c} value={c} className="text-ink">
+                      {c}
+                    </option>
+                  ))}
+                </select>
+                <ChevronDown
+                  size={16}
+                  className="pointer-events-none absolute right-3.5 top-1/2 -translate-y-1/2 text-gold"
+                />
+              </div>
             </div>
             <textarea
               name="message"
               placeholder="Message"
               rows={3}
-              className="bg-white/5 border border-white/15 rounded-btn px-4 py-3 text-sm placeholder:text-white/40 focus:border-gold outline-none resize-none"
+              className={`${inputClasses} resize-none`}
             />
 
             <button
@@ -197,7 +208,7 @@ export default function ContactSection() {
             <div className="w-16 h-16 rounded-full bg-[#25D366] flex items-center justify-center">
               <WhatsAppIcon size={34} className="text-white" />
             </div>
-            <p className="text-sm text-white/70 leading-relaxed">
+            <p className="text-sm text-white/70 leading-relaxed max-w-[160px] mx-auto">
               Share a few details and we will get back to you.
             </p>
             <a

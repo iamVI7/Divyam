@@ -1,4 +1,5 @@
 import Reveal from "./Reveal";
+import TitleDivider from "./TitleDivider";
 
 const steps = [
   {
@@ -30,11 +31,12 @@ const steps = [
 
 export default function PlanningTimeline() {
   return (
-    <section className="max-w-content mx-auto px-6 lg:px-10 py-20 lg:py-24">
-      <Reveal className="text-center mb-16">
+    <section className="max-w-content mx-auto px-6 lg:px-10 py-14 lg:py-16">
+      <Reveal className="text-center mb-10">
         <h2 className="section-title text-3xl lg:text-4xl font-medium">
           How We Plan Weddings in Prayagraj
         </h2>
+        <TitleDivider />
       </Reveal>
 
       <div className="relative grid sm:grid-cols-2 lg:grid-cols-5 gap-x-6 gap-y-12">
