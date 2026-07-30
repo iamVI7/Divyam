@@ -12,7 +12,7 @@ export default function Hero() {
         fill
         priority
         sizes="100vw"
-        className="object-cover"
+        className="object-cover object-right"
       />
 
       {/* Dark gradient overlay so the text stays readable over the photo */}

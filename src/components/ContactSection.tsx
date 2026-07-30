@@ -1,7 +1,7 @@
 "use client";
 
-import { useState, FormEvent } from "react";
-import { MapPin, Phone, Mail, Clock, ChevronDown } from "lucide-react";
+import { useState, useEffect, FormEvent } from "react";
+import { MapPin, Phone, Mail, Clock, ChevronDown, CheckCircle2 } from "lucide-react";
 import Reveal from "./Reveal";
 import TitleDivider from "./TitleDivider";
 
@@ -33,6 +33,12 @@ type Status = "idle" | "submitting" | "success" | "error";
 export default function ContactSection() {
   const [status, setStatus] = useState<Status>("idle");
   const [errorMsg, setErrorMsg] = useState("");
+
+  useEffect(() => {
+    if (status !== "success") return;
+    const timer = setTimeout(() => setStatus("idle"), 4000);
+    return () => clearTimeout(timer);
+  }, [status]);
 
   async function handleSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -75,7 +81,7 @@ export default function ContactSection() {
 
   return (
     <section id="contact" className="bg-navy text-white">
-      <div className="max-w-content mx-auto px-6 lg:px-10 py-14 lg:py-16 grid lg:grid-cols-3 gap-12">
+      <div className="max-w-content mx-auto px-6 lg:px-10 py-10 lg:py-12 grid lg:grid-cols-3 gap-10">
         {/* Info column */}
         <Reveal direction="right">
           <h2 className="font-heading text-3xl font-medium mb-1">
@@ -184,17 +190,25 @@ export default function ContactSection() {
 
             <button
               type="submit"
-              disabled={status === "submitting"}
-              className="bg-gold text-navy font-medium px-6 py-3 rounded-btn uppercase text-sm tracking-wide hover:bg-white transition-colors duration-200 disabled:opacity-60"
+              disabled={status === "submitting" || status === "success"}
+              className={`inline-flex items-center justify-center gap-2 font-medium px-6 py-3 rounded-btn uppercase text-sm tracking-wide transition-colors duration-200 disabled:cursor-default ${
+                status === "success"
+                  ? "bg-emerald-600 text-white"
+                  : "bg-gold text-navy hover:bg-white disabled:opacity-60"
+              }`}
             >
-              {status === "submitting" ? "Sending..." : "Request Consultation"}
+              {status === "success" ? (
+                <>
+                  <CheckCircle2 size={16} />
+                  Message Sent
+                </>
+              ) : status === "submitting" ? (
+                "Sending..."
+              ) : (
+                "Request Consultation"
+              )}
             </button>
 
-            {status === "success" && (
-              <p className="text-xs text-gold">
-                Thank you. Our team will reach out to you shortly.
-              </p>
-            )}
             {status === "error" && (
               <p className="text-xs text-red-300">{errorMsg}</p>
             )}
