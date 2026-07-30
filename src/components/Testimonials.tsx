@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Quote, ChevronLeft, ChevronRight } from "lucide-react";
+import Reveal from "./Reveal";
 
 const testimonials = [
   {
@@ -32,13 +33,15 @@ export default function Testimonials() {
   return (
     <section className="bg-navy text-white">
       <div className="max-w-content mx-auto px-6 lg:px-10 py-20 lg:py-24">
-        <div className="text-center mb-12">
+        <Reveal className="text-center mb-12">
           <h2 className="font-heading text-3xl lg:text-4xl font-medium">What Families Say</h2>
-        </div>
+        </Reveal>
 
         <div className="hidden lg:grid grid-cols-3 gap-6">
-          {testimonials.map((t) => (
-            <TestimonialCard key={t.author + t.quote} quote={t.quote} author={t.author} />
+          {testimonials.map((t, i) => (
+            <Reveal key={t.author + t.quote} delay={i * 0.08}>
+              <TestimonialCard quote={t.quote} author={t.author} />
+            </Reveal>
           ))}
         </div>
 

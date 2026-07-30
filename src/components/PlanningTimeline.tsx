@@ -1,3 +1,5 @@
+import Reveal from "./Reveal";
+
 const steps = [
   {
     n: 1,
@@ -29,22 +31,22 @@ const steps = [
 export default function PlanningTimeline() {
   return (
     <section className="max-w-content mx-auto px-6 lg:px-10 py-20 lg:py-24">
-      <div className="text-center mb-16">
+      <Reveal className="text-center mb-16">
         <h2 className="section-title text-3xl lg:text-4xl font-medium">
           How We Plan Weddings in Prayagraj
         </h2>
-      </div>
+      </Reveal>
 
       <div className="relative grid sm:grid-cols-2 lg:grid-cols-5 gap-x-6 gap-y-12">
         <div className="hidden lg:block absolute top-5 left-[10%] right-[10%] h-px bg-border" />
-        {steps.map((step) => (
-          <div key={step.n} className="relative flex flex-col items-center text-center px-2">
+        {steps.map((step, i) => (
+          <Reveal key={step.n} delay={i * 0.08} className="relative flex flex-col items-center text-center px-2">
             <span className="relative z-10 w-10 h-10 rounded-full bg-navy text-gold ring-2 ring-gold/70 flex items-center justify-center font-body font-bold text-base mb-5">
               {step.n}
             </span>
             <h3 className="font-medium text-navy text-sm mb-2 leading-snug">{step.title}</h3>
             <p className="text-xs text-ink/60 leading-relaxed">{step.desc}</p>
-          </div>
+          </Reveal>
         ))}
       </div>
     </section>

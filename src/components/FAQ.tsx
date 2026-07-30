@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Plus } from "lucide-react";
+import Reveal from "./Reveal";
 
 const faqsLeft = [
   {
@@ -88,15 +89,19 @@ function AccordionColumn({ items }: { items: { q: string; a: string }[] }) {
 export default function FAQ() {
   return (
     <section className="max-w-content mx-auto px-6 lg:px-10 py-20 lg:py-24">
-      <div className="text-center mb-14">
+      <Reveal className="text-center mb-14">
         <h2 className="section-title text-3xl lg:text-4xl font-medium">
           Frequently Asked Questions
         </h2>
-      </div>
+      </Reveal>
 
       <div className="grid lg:grid-cols-2 gap-5">
-        <AccordionColumn items={faqsLeft} />
-        <AccordionColumn items={faqsRight} />
+        <Reveal direction="right">
+          <AccordionColumn items={faqsLeft} />
+        </Reveal>
+        <Reveal direction="left" delay={0.1}>
+          <AccordionColumn items={faqsRight} />
+        </Reveal>
       </div>
     </section>
   );

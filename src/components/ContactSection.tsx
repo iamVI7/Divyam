@@ -1,7 +1,23 @@
 "use client";
 
 import { useState, FormEvent } from "react";
-import { MapPin, Phone, Mail, Clock, MessageCircle } from "lucide-react";
+import { MapPin, Phone, Mail, Clock } from "lucide-react";
+import Reveal from "./Reveal";
+
+function WhatsAppIcon({ size = 40, className = "" }: { size?: number; className?: string }) {
+  return (
+    <svg
+      viewBox="0 0 32 32"
+      width={size}
+      height={size}
+      className={className}
+      fill="currentColor"
+      aria-hidden="true"
+    >
+      <path d="M16.004 3C9.373 3 4 8.373 4 15.004c0 2.446.71 4.72 1.936 6.637L4 29l7.53-1.905a11.94 11.94 0 0 0 4.474.865h.005C22.64 27.96 28 22.588 28 15.958 28 9.328 22.635 3 16.004 3Zm0 21.75h-.004a9.9 9.9 0 0 1-5.043-1.382l-.362-.215-4.47 1.131 1.192-4.355-.236-.448A9.898 9.898 0 0 1 5.82 15c0-5.478 4.457-9.936 9.988-9.936 5.532 0 9.987 4.458 9.987 9.936 0 5.478-4.455 9.75-9.99 9.75Zm5.47-7.39c-.3-.15-1.77-.874-2.045-.974-.274-.1-.474-.15-.674.15-.2.3-.774.974-.949 1.174-.174.2-.35.225-.65.075-.3-.15-1.264-.466-2.408-1.485-.89-.793-1.492-1.773-1.667-2.073-.174-.3-.019-.462.131-.611.135-.134.3-.35.45-.525.15-.174.2-.3.3-.5.1-.2.05-.375-.025-.525-.075-.15-.674-1.62-.924-2.22-.243-.583-.49-.504-.674-.513a13 13 0 0 0-.574-.011c-.2 0-.525.075-.8.375-.274.3-1.05 1.025-1.05 2.5 0 1.474 1.075 2.899 1.225 3.099.15.2 2.113 3.227 5.121 4.524.715.309 1.273.494 1.708.632.718.228 1.371.196 1.888.119.576-.086 1.77-.724 2.02-1.423.25-.7.25-1.299.175-1.424-.075-.124-.275-.199-.575-.349Z" />
+    </svg>
+  );
+}
 
 const celebrationTypes = [
   "Traditional Wedding",
@@ -55,9 +71,9 @@ export default function ContactSection() {
 
   return (
     <section id="contact" className="bg-navy text-white">
-      <div className="max-w-content mx-auto px-6 lg:px-10 py-16 lg:py-20 grid lg:grid-cols-3 gap-12">
+      <div className="max-w-content mx-auto px-6 lg:px-10 py-20 lg:py-24 grid lg:grid-cols-3 gap-12">
         {/* Info column */}
-        <div>
+        <Reveal direction="right">
           <h2 className="font-heading text-3xl font-medium mb-4">
             Let&rsquo;s Plan Your Celebration in Prayagraj
           </h2>
@@ -98,10 +114,10 @@ export default function ContactSection() {
               Varanasi, Bhadohi &amp; Kanpur
             </p>
           </div>
-        </div>
+        </Reveal>
 
         {/* Form column */}
-        <div>
+        <Reveal delay={0.1}>
           <h3 className="font-heading text-xl font-medium mb-5">
             Request a Private Consultation
           </h3>
@@ -172,13 +188,15 @@ export default function ContactSection() {
               <p className="text-xs text-red-300">{errorMsg}</p>
             )}
           </form>
-        </div>
+        </Reveal>
 
         {/* WhatsApp column */}
-        <div>
+        <Reveal delay={0.2}>
           <h3 className="font-heading text-xl font-medium mb-5">Or WhatsApp Us</h3>
           <div className="border border-white/15 rounded-card px-6 py-8 flex flex-col items-center text-center gap-4">
-            <MessageCircle size={40} strokeWidth={1.25} className="text-gold" />
+            <div className="w-16 h-16 rounded-full bg-[#25D366] flex items-center justify-center">
+              <WhatsAppIcon size={34} className="text-white" />
+            </div>
             <p className="text-sm text-white/70 leading-relaxed">
               Share a few details and we will get back to you.
             </p>
@@ -188,10 +206,11 @@ export default function ContactSection() {
               rel="noopener noreferrer"
               className="w-full inline-flex justify-center items-center gap-2 bg-gold text-navy font-medium px-6 py-3 rounded-btn uppercase text-sm tracking-wide hover:bg-white transition-colors duration-200"
             >
+              <WhatsAppIcon size={16} />
               Chat on WhatsApp
             </a>
           </div>
-        </div>
+        </Reveal>
       </div>
     </section>
   );

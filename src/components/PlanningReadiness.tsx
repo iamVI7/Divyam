@@ -1,4 +1,5 @@
 import { KeyRound, Car, Truck, Zap, CloudRainWind, Hotel } from "lucide-react";
+import Reveal from "./Reveal";
 
 const items = [
   {
@@ -37,21 +38,21 @@ export default function PlanningReadiness() {
   return (
     <section className="bg-navy/[0.03] border-y border-border">
       <div className="max-w-content mx-auto px-6 lg:px-10 py-20 lg:py-24">
-        <div className="text-center mb-14">
+        <Reveal className="text-center mb-14">
           <h2 className="section-title text-3xl lg:text-4xl font-medium">
             Local Planning & Readiness in Prayagraj
           </h2>
-        </div>
+        </Reveal>
 
         <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-x-6 gap-y-10 items-start">
-          {items.map(({ icon: Icon, title, desc }) => (
-            <div key={title} className="flex flex-col gap-3">
+          {items.map(({ icon: Icon, title, desc }, i) => (
+            <Reveal key={title} delay={i * 0.06} className="flex flex-col gap-3">
               <Icon size={26} strokeWidth={1.25} className="text-gold" />
               <div>
                 <h3 className="font-medium text-navy text-sm mb-1.5 leading-snug">{title}</h3>
                 <p className="text-xs text-ink/60 leading-relaxed">{desc}</p>
               </div>
-            </div>
+            </Reveal>
           ))}
         </div>
       </div>

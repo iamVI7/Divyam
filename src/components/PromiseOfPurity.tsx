@@ -1,4 +1,5 @@
 import { Leaf, Tags, FileText, Users, CookingPot, BadgeCheck, ImageIcon } from "lucide-react";
+import Reveal from "./Reveal";
 
 const items = [
   {
@@ -37,7 +38,7 @@ export default function PromiseOfPurity() {
   return (
     <section id="promise" className="bg-white">
       <div className="max-w-content mx-auto grid lg:grid-cols-2">
-        <div className="px-6 lg:px-16 py-16 lg:py-20">
+        <Reveal direction="right" className="px-6 lg:px-16 py-20 lg:py-24">
           <span className="eyebrow">The Promise of Purity</span>
           <h2 className="section-title text-3xl lg:text-4xl font-medium mt-3 mb-4">
             The Promise of Purity
@@ -48,24 +49,24 @@ export default function PromiseOfPurity() {
           </p>
 
           <div className="grid sm:grid-cols-2 gap-x-8 gap-y-7">
-            {items.map(({ icon: Icon, title, desc }) => (
-              <div key={title} className="flex gap-3">
+            {items.map(({ icon: Icon, title, desc }, i) => (
+              <Reveal key={title} delay={i * 0.05} className="flex gap-3">
                 <Icon size={20} strokeWidth={1.5} className="text-gold shrink-0 mt-0.5" />
                 <div>
                   <p className="text-sm font-medium text-navy leading-snug">{title}</p>
                   <p className="text-xs text-ink/55 mt-1 leading-snug">{desc}</p>
                 </div>
-              </div>
+              </Reveal>
             ))}
           </div>
-        </div>
+        </Reveal>
 
-        <div className="min-h-[320px] lg:min-h-full bg-border/60 flex items-center justify-center">
+        <Reveal direction="left" className="min-h-[320px] lg:min-h-full bg-border/60 flex items-center justify-center">
           <div className="flex flex-col items-center gap-3 text-ink/40">
             <ImageIcon size={56} strokeWidth={1.25} className="text-gold/70" />
             <span className="uppercase text-xs tracking-[0.2em]">Food Image (Placeholder)</span>
           </div>
-        </div>
+        </Reveal>
       </div>
     </section>
   );
